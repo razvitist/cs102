@@ -13,15 +13,15 @@ def encrypt_vigenere(plaintext: str, keyword: str) -> str:
     >>> encrypt_vigenere("ATTACKATDAWN", "LEMON")
     'LXFOPVEFRNHR'
     """
-    r = ""
+    chiphertext = ""
     for j, i in enumerate(plaintext):
         if i in A:
-            r += A[(A.index(i) + A.index(keyword[j % len(keyword)])) % 26]
+            chiphertext += A[(A.index(i) + A.index(keyword[j % len(keyword)])) % 26]
         elif i in B:
-            r += B[(B.index(i) + B.index(keyword[j % len(keyword)])) % 26]
+            chiphertext += B[(B.index(i) + B.index(keyword[j % len(keyword)])) % 26]
         else:
-            r += i
-    return r
+            chiphertext += i
+    return chiphertext
 
 
 def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
@@ -35,12 +35,12 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
     >>> decrypt_vigenere("LXFOPVEFRNHR", "LEMON")
     'ATTACKATDAWN'
     """
-    r = ""
+    plaintext = ""
     for j, i in enumerate(ciphertext):
         if i in A:
-            r += A[(A.index(i) - A.index(keyword[j % len(keyword)])) % 26]
+            plaintext += A[(A.index(i) - A.index(keyword[j % len(keyword)])) % 26]
         elif i in B:
-            r += B[(B.index(i) - B.index(keyword[j % len(keyword)])) % 26]
+            plaintext += B[(B.index(i) - B.index(keyword[j % len(keyword)])) % 26]
         else:
-            r += i
-    return r
+            plaintext += i
+    return plaintext
