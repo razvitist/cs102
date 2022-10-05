@@ -1,8 +1,7 @@
 import typing as tp
 
 A = "abcdefghijklmnopqrstuvwxyz"
-B = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
+B = A.upper()
 
 def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     """

@@ -1,5 +1,5 @@
 A = "abcdefghijklmnopqrstuvwxyz"
-B = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+B = A.upper()
 
 
 def encrypt_vigenere(plaintext: str, keyword: str) -> str:
