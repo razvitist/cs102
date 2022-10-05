@@ -16,9 +16,9 @@ def encrypt_vigenere(plaintext: str, keyword: str) -> str:
     chiphertext = ""
     for j, i in enumerate(plaintext):
         if i in A:
-            chiphertext += A[(A.index(i) + A.index(keyword[j % len(keyword)])) % 26]
+            chiphertext += A[(A.index(i) + A.index(keyword.lower()[j % len(keyword)])) % 26]
         elif i in B:
-            chiphertext += B[(B.index(i) + B.index(keyword[j % len(keyword)])) % 26]
+            chiphertext += B[(B.index(i) + B.index(keyword.upper()[j % len(keyword)])) % 26]
         else:
             chiphertext += i
     return chiphertext
@@ -38,9 +38,9 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
     plaintext = ""
     for j, i in enumerate(ciphertext):
         if i in A:
-            plaintext += A[(A.index(i) - A.index(keyword[j % len(keyword)])) % 26]
+            plaintext += A[(A.index(i) - A.index(keyword.lower()[j % len(keyword)])) % 26]
         elif i in B:
-            plaintext += B[(B.index(i) - B.index(keyword[j % len(keyword)])) % 26]
+            plaintext += B[(B.index(i) - B.index(keyword.upper()[j % len(keyword)])) % 26]
         else:
             plaintext += i
     return plaintext
