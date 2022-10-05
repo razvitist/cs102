@@ -3,6 +3,7 @@ import typing as tp
 A = "abcdefghijklmnopqrstuvwxyz"
 B = A.upper()
 
+
 def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     """
     Encrypts plaintext using a Caesar cipher.
