@@ -50,7 +50,6 @@ def multiplicative_inverse(e: int, phi: int) -> int:
     >>> multiplicative_inverse(7, 40)
     23
     """
-    print("multiplicative_inverse")
     # return pow(e, -1, phi)
     d1, d2 = max(e, phi), min(e, phi)
     m = [d1 // d2]
@@ -60,12 +59,10 @@ def multiplicative_inverse(e: int, phi: int) -> int:
     a, b = 0, 1
     for i in range(len(m) - 1, 0, -1):
         a, b = b, a - b * m[i - 1]
-    print("multiplicative_inverse end")
     return b % phi
 
 
 def generate_keypair(p: int, q: int) -> tp.Tuple[tp.Tuple[int, int], tp.Tuple[int, int]]:
-    print("generate_keypair")
     if not (is_prime(p) and is_prime(q)):
         raise ValueError("Both numbers must be prime.")
     elif p == q:
@@ -91,7 +88,6 @@ def generate_keypair(p: int, q: int) -> tp.Tuple[tp.Tuple[int, int], tp.Tuple[in
 
     # Return public and private keypair
     # Public key is (e, n) and private key is (d, n)
-    print("generate_keypair end")
     return ((e, n), (d, n))
 
 
