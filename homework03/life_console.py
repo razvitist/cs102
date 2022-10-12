@@ -18,9 +18,7 @@ class Console(UI):
             screen.addstr(
                 i + 1,
                 1,
-                "".join(map(str, self.game.curr_generation[i]))
-                .replace("0", " ")
-                .replace("1", "*"),
+                "".join(map(str, self.game.curr_generation[i])).replace("0", " ").replace("1", "*"),
             )
         screen.refresh()
         screen.getch()
