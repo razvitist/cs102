@@ -28,7 +28,7 @@ class Console(UI):
         screen = curses.initscr()
         self.draw_borders(screen)
         self.game.create_grid(randomize=True)
-        for _ in range(self.game.max_generations):
+        for _ in range(int(self.game.max_generations)):
             self.draw_grid(screen)
         curses.endwin()
 
