@@ -30,12 +30,24 @@ class GameOfLife:
 
     def create_grid(self, randomize: bool = False) -> Grid:
         # Copy from previous assignment
-        return [[random.randint(0, 1) if randomize else 0 for _ in range(self.rows)] for _ in range(self.cols)]
+        return [
+            [random.randint(0, 1) if randomize else 0 for _ in range(self.rows)]
+            for _ in range(self.cols)
+        ]
 
     def get_neighbours(self, cell: Cell) -> Cells:
         # Copy from previous assignment
         m = []
-        for i, j in ((-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)):
+        for i, j in (
+            (-1, -1),
+            (-1, 0),
+            (-1, 1),
+            (0, -1),
+            (0, 1),
+            (1, -1),
+            (1, 0),
+            (1, 1),
+        ):
             if cell[0] + i >= 0 and cell[1] + j >= 0:
                 try:
                     m.append(self.curr_generation[cell[0] + i][cell[1] + j])
@@ -45,7 +57,9 @@ class GameOfLife:
 
     def get_next_generation(self) -> Grid:
         # Copy from previous assignment
-        grid = [[0] * len(self.curr_generation[0]) for _ in range(len(self.curr_generation))]
+        grid = [
+            [0] * len(self.curr_generation[0]) for _ in range(len(self.curr_generation))
+        ]
         for i in range(len(self.curr_generation)):
             for j in range(len(self.curr_generation[0])):
                 n = self.get_neighbours((i, j)).count(1)
@@ -87,6 +101,6 @@ class GameOfLife:
         """
         Сохранить текущее состояние клеток в указанный файл.
         """
-        with open(filename, 'w') as f:
+        with open(filename, "w") as f:
             for i in self.curr_generation:
-                print(''.join(i), file=f)
+                print("".join(i), file=f)
