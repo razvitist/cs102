@@ -33,7 +33,6 @@ def display(grid: tp.List[tp.List[str]]) -> None:
 
 
 def group(values: tp.List[T], n: int) -> tp.List[tp.List[T]]:
-    n = len(values) // n
     return [values[i * n : (i + 1) * n] for i in range(n)]
 
 
