@@ -28,9 +28,10 @@ class Console(UI):
         screen = curses.initscr()
         self.draw_borders(screen)
         self.game.create_grid(randomize=True)
-        for _ in range(int(self.game.max_generations)):
+        # for _ in range(self.game.max_generations):
+        while True:
             self.draw_grid(screen)
-        curses.endwin()
+        # curses.endwin()
 
 
 life = GameOfLife((80, 30), max_generations=1000)
