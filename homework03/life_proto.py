@@ -51,9 +51,9 @@ class GameOfLife:
 
         running = True
         while running:
-            for event in pygame.event.get():
-                if event.type == QUIT:
-                    running = False
+            # for event in pygame.event.get():
+            #     if event.type == QUIT:
+            #         running = False
 
             # Отрисовка списка клеток
             # Выполнение одного шага игры (обновление состояния ячеек)

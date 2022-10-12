@@ -78,7 +78,7 @@ class GameOfLife:
         """
         Не превысило ли текущее число поколений максимально допустимое.
         """
-        return self.generations <= self.max_generations
+        return int(self.generations) <= int(self.max_generations)
 
     @property
     def is_changing(self) -> bool:
@@ -93,7 +93,7 @@ class GameOfLife:
         Прочитать состояние клеток из указанного файла.
         """
         with open(filename) as f:
-            return [[int(j) for j in i] for i in f]
+            return GameOfLife([[int(j) for j in i] for i in f])
 
     def save(self, filename: pathlib.Path) -> None:
         """
@@ -101,4 +101,4 @@ class GameOfLife:
         """
         with open(filename, "w") as f:
             for i in self.curr_generation:
-                print("".join(i), file=f)
+                print(i, sep="", file=f)
