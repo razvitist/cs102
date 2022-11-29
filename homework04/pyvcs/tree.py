@@ -18,7 +18,8 @@ def write_tree(gitdir: pathlib.Path, index: tp.List[GitIndexEntry], dirname: str
                 oct(file.mode)[2:].encode()
                 + b" "
                 + file.name[file.name.find("/") + 1 :].encode()
-                + b"\0" + file.sha1
+                + b"\0" 
+                + file.sha1
             )
             note += bytes.fromhex(hash_object(subdir_files, fmt="tree", write=True))
         else:
