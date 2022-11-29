@@ -1,3 +1,5 @@
+# mypy: ignore-errors
+
 import hashlib
 import pathlib
 import typing as tp
