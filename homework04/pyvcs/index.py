@@ -38,7 +38,7 @@ class GitIndexEntry(tp.NamedTuple):
             self.size,
             self.sha1,
             self.flags,
-            self.name.encode()
+            self.name.encode(),
         )
 
     @staticmethod
