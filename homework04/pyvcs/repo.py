@@ -33,11 +33,11 @@ def repo_create(workdir: tp.Union[str, pathlib.Path]) -> pathlib.Path:
     for i in ("refs", "refs/heads", "refs/tags", "objects"):
         (dir / i).mkdir()
     for i in (
-        ("HEAD", "ref: refs/heads/master\n"), 
+        ("HEAD", "ref: refs/heads/master\n"),
         (
-            "config", 
-            "[core]\n\trepositoryformatversion = 0\n\tfilemode = true\n\tbare = false\n\tlogallrefupdates = false\n"
-        ), 
+            "config",
+            "[core]\n\trepositoryformatversion = 0\n\tfilemode = true\n\tbare = false\n\tlogallrefupdates = false\n",
+        ),
         ("description", "Unnamed pyvcs repository.\n"),
     ):
         (dir / i[0]).write_text(i[1])
