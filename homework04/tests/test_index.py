@@ -3,8 +3,9 @@ import pathlib
 import unittest
 from unittest.mock import patch
 
-import pyvcs
 from pyfakefs.fake_filesystem_unittest import TestCase
+
+import pyvcs
 from pyvcs.index import GitIndexEntry, ls_files, read_index, update_index, write_index
 from pyvcs.repo import repo_create
 
@@ -177,6 +178,7 @@ class UpdateIndexTestCase(TestCase):
         index = gitdir / "index"
         quote = pathlib.Path("quote.txt")
         self.fs.create_file(quote, contents="that's what she said")
+
         self.assertFalse(index.exists())
         update_index(gitdir, [quote])
         self.assertTrue(index.exists())
