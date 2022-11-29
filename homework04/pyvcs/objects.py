@@ -63,13 +63,13 @@ def cat_file(obj_name: str, pretty: bool = True) -> None:
             r = ""
             for f in read_tree(content):
                 r += (
-                    str(f[0]).zfill(6) 
-                    + " " 
-                    + read_object(f[2], repo_find())[0] 
-                    + " " 
-                    + f[2] 
-                    + "\t" 
-                    + f[1] 
+                    str(f[0]).zfill(6)
+                    + " "
+                    + read_object(f[2], repo_find())[0]
+                    + " "
+                    + f[2]
+                    + "\t"
+                    + f[1]
                     + "\n"
                 )
             print(r)
