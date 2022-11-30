@@ -20,13 +20,15 @@ class FriendsResponse:
 def get_friends(
     user_id: int, count: int = 5000, offset: int = 0, fields: tp.Optional[tp.List[str]] = None
 ) -> FriendsResponse:
-    return FriendsResponse(**session.get(
-        "friends.get",
-        user_id=user_id,
-        count=count,
-        offset=offset,
-        fields=fields,
-        ).json()["response"])
+    return FriendsResponse(
+        **session.get(
+            "friends.get",
+            user_id=user_id,
+            count=count,
+            offset=offset,
+            fields=fields,
+        ).json()["response"]
+    )
 
 
 class MutualFriends(tp.TypedDict):
