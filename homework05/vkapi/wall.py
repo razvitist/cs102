@@ -12,7 +12,7 @@ from vkapi.exceptions import APIError
 def get_posts_2500(count: int = 2500, **kwargs: tp.Any) -> tp.List[tp.Dict[str, tp.Any]]:
     kwargs["count"] = str(count)
     code = (
-    """
+        """
         let m = []
         let i = 0
         while (i < 25) {
