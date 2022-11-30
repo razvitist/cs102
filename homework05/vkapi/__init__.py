@@ -1,3 +1,5 @@
+# mypy: ignore-errors
+
 from vkapi import config
 from vkapi.session import Session
 
