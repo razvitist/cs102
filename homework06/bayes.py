@@ -1,5 +1,6 @@
-import re
 import math
+import re
+
 
 class NaiveBayesClassifier:
     def __init__(self, alpha):
