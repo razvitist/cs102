@@ -2,11 +2,12 @@ from bottle import (
     route, run, template, request, redirect
 )
 
-from scrapper import get_news
+from scraputils import get_news
 from db import News, session
 from bayes import NaiveBayesClassifier
 
 
+@route('/')
 @route("/news")
 def news_list():
     s = session()
@@ -16,19 +17,21 @@ def news_list():
 
 @route("/add_label/")
 def add_label():
-    # PUT YOUR CODE HERE
+    News.add_label(request.query["id"], request.query["label"])
     redirect("/news")
 
 
 @route("/update")
 def update_news():
-    # PUT YOUR CODE HERE
+    news = get_news("https://news.ycombinator.com/newest")
+    News.update_news(news)
     redirect("/news")
 
 
+@route("/recommendations")
 @route("/classify")
 def classify_news():
-    # PUT YOUR CODE HERE
+    ...
 
 
 if __name__ == "__main__":
