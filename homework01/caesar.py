@@ -1,5 +1,8 @@
 import typing as tp
 
+A = "abcdefghijklmnopqrstuvwxyz"
+B = A.upper()
+
 
 def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     """
@@ -14,9 +17,15 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     >>> encrypt_caesar("")
     ''
     """
-    ciphertext = ""
-    # PUT YOUR CODE HERE
-    return ciphertext
+    r = ""
+    for i in plaintext:
+        if i in A:
+            r += A[(A.index(i) + shift) % 26]
+        elif i in B:
+            r += B[(B.index(i) + shift) % 26]
+        else:
+            r += i
+    return r
 
 
 def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
@@ -32,9 +41,15 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     >>> decrypt_caesar("")
     ''
     """
-    plaintext = ""
-    # PUT YOUR CODE HERE
-    return plaintext
+    r = ""
+    for i in ciphertext:
+        if i in A:
+            r += A[(A.index(i) - shift) % 26]
+        elif i in B:
+            r += B[(B.index(i) - shift) % 26]
+        else:
+            r += i
+    return r
 
 
 def caesar_breaker_brute_force(ciphertext: str, dictionary: tp.Set[str]) -> int:
@@ -42,5 +57,14 @@ def caesar_breaker_brute_force(ciphertext: str, dictionary: tp.Set[str]) -> int:
     Brute force breaking a Caesar cipher.
     """
     best_shift = 0
-    # PUT YOUR CODE HERE
+    m = 0
+    for i in range(26):
+        n = 0
+        t = decrypt_caesar(ciphertext, i)
+        for j in dictionary:
+            if j in t:
+                n += 1
+        if n > m:
+            m = n
+            best_shift = i
     return best_shift
